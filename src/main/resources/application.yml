@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  applicaiton:
+    name: AuthService
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: mysql
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        format_sql: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/authdb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8
+
+logging:
+  config: logback.xml
+  level:
+    my.service.myAuth: trace
+
+management:
+  endpoints:
+    web:
+      base-path: /admin
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+
